@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+    >
+
+    <!-- Makes TrainLog behave like an installed app on iPhone and iPad. -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Trainlog">
+
+    <!-- Matches the dark background used by the original TrainLog app. -->
+    <meta name="theme-color" content="#14171C">
+
+    <title>Trainlog</title>
+
+    <!-- PWA installation metadata and the iPhone/iPad home-screen icon. -->
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+    <link rel="stylesheet" href="assets/css/trainlog.css">
+
+    <!-- Fonts used by the original TrainLog design. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap"
+    >
+  </head>
+
+  <body>
+    <!-- Shown while saved TrainLog data is loading. -->
+    <div id="splash">
+      <div class="disp">
+        TRAIN<span class="brandmark">LOG</span>
+      </div>
+      <div class="sub">loading your log…</div>
+    </div>
+
+    <!-- Main application shell. JavaScript reveals it after loading data. -->
+    <div id="app" style="display: none;">
+      <header class="topbar">
+        <div class="disp">
+          TRAIN<span class="brandmark">LOG</span>
+        </div>
+
+        <!-- JavaScript inserts today's date here. -->
+        <div class="date-today" id="topbarDate"></div>
+      </header>
+
+      <main id="screen-root" class="screen">
+        <!-- The selected page is rendered here by JavaScript. -->
+      </main>
+    </div>
+
+    <!-- The fixed five-tab navigation for the TrainLog app. -->
+    <nav
+      class="bottomnav"
+      id="bottomnav"
+      aria-label="Main navigation"
+      style="display: none;"
+    >
+      <div class="inner">
+        <button
+          type="button"
+          data-action="nav"
+          data-tab="home"
+          id="nav-home"
+          aria-label="Home"
+        ></button>
+
+        <button
+          type="button"
+          data-action="nav"
+          data-tab="calendar"
+          id="nav-calendar"
+          aria-label="Calendar"
+        ></button>
+
+        <button
+          type="button"
+          data-action="nav"
+          data-tab="workout"
+          id="nav-workout"
+          aria-label="Workout"
+        ></button>
+
+        <button
+          type="button"
+          data-action="nav"
+          data-tab="prs"
+          id="nav-prs"
+          aria-label="Personal records"
+        ></button>
+
+        <button
+          type="button"
+          data-action="nav"
+          data-tab="profile"
+          id="nav-profile"
+          aria-label="Profile"
+        ></button>
+      </div>
+    </nav>
+
+    <!-- Forms and confirmation sheets are rendered here by JavaScript. -->
+    <div id="modal-root"></div>
+
+    <noscript>
+      TrainLog requires JavaScript. Please enable JavaScript and reopen the app.
+    </noscript>
+
+    <!-- app.js starts TrainLog and imports the other JavaScript modules. -->
+    <script type="module" src="assets/js/app.js"></script>
+  </body>
+</html>
