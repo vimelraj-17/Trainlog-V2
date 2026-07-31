@@ -61,9 +61,15 @@ export function renderNavigation(activeTab = 'home') {
       isActive ? 'page' : 'false'
     );
 
+    const iconClass = tab.id === 'workout'
+      ? 'nav-icon nav-icon-workout'
+      : 'nav-icon';
+
     button.innerHTML =
-      icon(tab.icon, 20) +
-      `<span>${esc(tab.label)}</span>`;
+      `<span class="${iconClass}">` +
+        icon(tab.icon, 20) +
+      '</span>' +
+      `<span class="nav-label">${esc(tab.label)}</span>`;
   });
 }
 
