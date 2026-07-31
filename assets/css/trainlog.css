@@ -238,7 +238,7 @@ h1,h2,h3{margin:0; font-weight:400;}
 }
 .empty b{display:block; color:var(--cinder); font-size:14px; margin-bottom:4px; font-weight:600;}
 
-/* Fixed five-tab navigation: Home, Calendar, PRs, Plan and Profile. */
+/* Fixed five-tab navigation: Home, Calendar, Workout, PRs and Profile. */
 nav.bottomnav{
   position:fixed;
   left:0;
@@ -275,6 +275,53 @@ nav.bottomnav button{
   border-radius:10px;
 }
 nav.bottomnav button.active{color:var(--ember);}
+
+/*
+ * Make Workout the prominent centre action without changing its tab behavior.
+ * The dark outer ring separates the orange circle from the navigation bar,
+ * while the dumbbell uses the app background colour for strong contrast.
+ */
+nav.bottomnav #nav-workout{
+  position:relative;
+  z-index:1;
+  color:var(--ember);
+  font-weight:700;
+  padding-top:0;
+}
+nav.bottomnav #nav-workout svg{
+  width:58px;
+  height:58px;
+  padding:15px;
+  margin-top:-24px;
+  margin-bottom:1px;
+  flex:0 0 auto;
+  color:var(--ink);
+  background:var(--ember);
+  border-radius:50%;
+  box-shadow:
+    0 0 0 5px var(--ink),
+    0 8px 22px rgba(255,90,43,0.32);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+nav.bottomnav #nav-workout.active svg{
+  box-shadow:
+    0 0 0 5px var(--ink),
+    0 0 0 7px rgba(255,90,43,0.30),
+    0 8px 24px rgba(255,90,43,0.42);
+}
+nav.bottomnav #nav-workout:active svg{
+  transform:scale(0.94);
+}
+nav.bottomnav #nav-workout:focus-visible svg{
+  outline:2px solid var(--chalk);
+  outline-offset:3px;
+}
+nav.bottomnav #nav-workout span{
+  color:var(--ember);
+  font-weight:700;
+}
 
 .cal-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
 .cal-head .disp{font-size:22px; letter-spacing:0.03em;}
@@ -643,5 +690,5 @@ nav.bottomnav button.active{color:var(--ember);}
 
 @media (prefers-reduced-motion: reduce){
   .sheet{animation:none;}
+  nav.bottomnav #nav-workout svg{transition:none;}
 }
-
