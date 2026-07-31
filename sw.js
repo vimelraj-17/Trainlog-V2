@@ -7,7 +7,7 @@
  */
 
 const CACHE_PREFIX = 'trainlog-shell-';
-const CACHE_NAME = `${CACHE_PREFIX}v2`;
+const CACHE_NAME = `${CACHE_PREFIX}v3`;
 
 /**
  * Files required for TrainLog to start and render offline.
